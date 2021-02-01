@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigation.ui.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_mainFragment_to_registration1Fragment"
+            app:destination="@id/registration1Navigation" />
+    </fragment>
+    <navigation
+        android:id="@+id/registration1Navigation"
+        app:startDestination="@id/registration1Fragment">
+        <fragment
+            android:id="@+id/registration1Fragment"
+            android:name="com.example.navigation.ui.main.Registration1Fragment"
+            android:label="Registration1Fragment"
+            tools:layout="@layout/registration1_fragment">
+            <action
+                android:id="@+id/action_registration1Fragment_to_registration2Fragment"
+                app:destination="@id/registration2Navigation" />
+            <deepLink
+                android:id="@+id/deepLink"
+                app:uri="navapp://open/reg1" />
+        </fragment>
+        <navigation
+            android:id="@+id/registration2Navigation"
+            app:startDestination="@id/registration2Fragment">
+            <fragment
+                android:id="@+id/registration2Fragment"
+                android:name="com.example.navigation.ui.main.Registration2Fragment"
+                android:label="Registration2Fragment"
+                tools:layout="@layout/registration2_fragment">
+                <action
+                    android:id="@+id/action_registration2Fragment_to_registration3Fragment"
+                    app:destination="@id/registration3Navigation" />
+                <deepLink
+                    android:id="@+id/deepLink2"
+                    app:uri="navapp://open/reg2" />
+            </fragment>
+            <navigation
+                android:id="@+id/registration3Navigation"
+                app:startDestination="@id/registration3Fragment">
+                <fragment
+                    android:id="@+id/registration3Fragment"
+                    android:name="com.example.navigation.ui.main.Registration3Fragment"
+                    android:label="Registration3Fragment"
+                    tools:layout="@layout/registration3_fragment">
+                    <action
+                        android:id="@+id/action_registration3Fragment_to_registration4Fragment"
+                        app:destination="@id/registration4Navigation" />
+                    <deepLink
+                        android:id="@+id/deepLink3"
+                        app:uri="navapp://open/reg3" />
+                </fragment>
+                <navigation
+                    android:id="@+id/registration4Navigation"
+                    app:startDestination="@id/registration4Fragment">
+                    <fragment
+                        android:id="@+id/registration4Fragment"
+                        android:name="com.example.navigation.ui.main.Registration4Fragment"
+                        android:label="Registration4Fragment"
+                        tools:layout="@layout/registration4_fragment">
+                        <action
+                            android:id="@+id/action_registration4Fragment_to_registration5Fragment"
+                            app:destination="@id/registration5Navigation" />
+                        <deepLink
+                            android:id="@+id/deepLink4"
+                            app:uri="navapp://open/reg4" />
+                    </fragment>
+                    <navigation
+                        android:id="@+id/registration5Navigation"
+                        app:startDestination="@id/registration5Fragment">
+                        <fragment
+                            android:id="@+id/registration5Fragment"
+                            android:name="com.example.navigation.ui.main.Registration5Fragment"
+                            android:label="Registration5Fragment"
+                            tools:layout="@layout/registration5_fragment">
+                            <deepLink
+                                android:id="@+id/deepLink5"
+                                app:uri="navapp://open/reg5" />
+                        </fragment>
+                    </navigation>
+                </navigation>
+            </navigation>
+        </navigation>
+    </navigation>
+
+    <action
+        android:id="@+id/action_global_to_registration5"
+        app:destination="@id/registration5Fragment" />
+</navigation>
